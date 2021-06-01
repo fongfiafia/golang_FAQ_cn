@@ -24,8 +24,3 @@
 4. perserving v 保持，兼容
 5. letter case 字母大小写（case 有大小写的意思）
 ```
-
-
-
-
-
