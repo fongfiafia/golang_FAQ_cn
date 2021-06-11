@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>Go为么没有类型继承？ · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,6 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="为什么len是一个函数而不是一个方法.html" />
+    
+    
+    <link rel="prev" href="Go怎么实现动态匹配方法.html" />
     
 
     </head>
@@ -85,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -287,7 +291,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="Go为么没有类型继承.html">
+        <li class="chapter active" data-level="1.3.3" data-path="Go为么没有类型继承.html">
             
                 <a href="Go为么没有类型继承.html">
             
@@ -387,7 +391,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Go为么没有类型继承？</a>
     </h1>
 </div>
 
@@ -402,7 +406,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
+                                <h1 id="go&#x4E3A;&#x4E48;&#x6CA1;&#x6709;&#x7C7B;&#x578B;&#x7EE7;&#x627F;&#xFF1F;">Go&#x4E3A;&#x4E48;&#x6CA1;&#x6709;&#x7C7B;&#x578B;&#x7EE7;&#x627F;&#xFF1F;</h1>
+<p>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#xFF0C;&#x662F;&#x6700;&#x51FA;&#x540D;&#x7684;&#x8BED;&#x8A00;&#x6A21;&#x5F0F;&#xFF0C;&#x800C;&#x5B83;&#x4E00;&#x76F4;&#x4F34;&#x968F;&#x4E00;&#x4E2A;&#x8BDD;&#x9898;&#xFF1A;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x5B9A;&#x4E49;&#x3002;Go&#x8D70;&#x4E86;&#x6761;&#x4E0D;&#x540C;&#x7684;&#x9053;&#x8DEF;&#x3002;</p>
+<p>Go&#x4E0D;&#x91C7;&#x7528;&#x8981;&#x6C42;&#x7A0B;&#x5E8F;&#x5458;&#x63D0;&#x524D;&#x58F0;&#x660E;&#x597D;&#x4E24;&#x4E2A;&#x7C7B;&#x578B;&#x662F;&#x6709;&#x5173;&#x8054;&#x7684;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x800C;&#x662F;&#x53EA;&#x8981;&#x4F60;&#x7684;&#x7C7B;&#x578B;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF08;interface&#xFF09;&#x7684;&#x65B9;&#x6CD5;&#x5B50;&#x96C6;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E24;&#x4E2A;&#x7C7B;&#x578B;&#x4FBF;&#x6709;&#x4E86;&#x5173;&#x8054;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x5F0F;&#xFF0C;&#x4E0D;&#x4EC5;&#x964D;&#x4F4E;&#x4E86;&#x7A0B;&#x5E8F;&#x5E95;&#x5C42;&#x8BB0;&#x5F55;&#x5404;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x800C;&#x4E14;&#x6709;&#x7740;&#x5176;&#x4ED6;&#x663E;&#x8457;&#x4F18;&#x70B9;&#xFF1A;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x591A;&#x4E2A;interface&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x50CF;&#x4F20;&#x7EDF;&#x7684;&#x591A;&#x91CD;&#x7EE7;&#x627F;&#x90A3;&#x4E48;&#x590D;&#x6742;&#x3002;interface&#x80FD;&#x591F;&#x5341;&#x5206;&#x8F7B;&#x91CF;&#xFF08;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8BBE;&#x7F6E;&#x6CA1;&#x6709;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x80FD;&#x8868;&#x8FBE;&#x51FA;&#x5B83;&#x7684;&#x542B;&#x4E49;&#xFF09;&#x3002;interface&#x80FD;&#x591F;&#x5728;&#x4E8B;&#x540E;&#x4F60;&#x7A81;&#x7136;&#x6709;&#x4E00;&#x4E2A;&#x4E3B;&#x610F;&#x7684;&#x65F6;&#x5019;&#x3001;&#x6216;&#x8005;&#x60F3;&#x8981;&#x5199;&#x4E00;&#x4E2A;test&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#x968F;&#x610F;&#x6DFB;&#x52A0;&#x3002;&#x56E0;&#x4E3A;&#x7C7B;&#x578B;&#x4E4B;&#x95F4;&#x5E76;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x5173;&#x7CFB;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x7C7B;&#x578B;&#x7EE7;&#x627F;&#x7684;&#x95EE;&#x9898;&#x3002;(PS: &#x6240;&#x4EE5;&#x6211;&#x89C9;&#x5F97;go&#x786E;&#x5B9E;&#x662F;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#xFF0C;gomock&#x7684;&#x5B9E;&#x73B0;&#x4E5F;&#x6709;&#x8FD9;&#x4E2A;&#x5173;&#x7CFB;&#xFF1A;&#x53EA;&#x80FD;mock&#x63A5;&#x53E3;)</p>
+<p>&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x4E86;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x7684;&#xFF08;type-safe&#xFF09;&#x7C7B;&#x4F3C;Unix&#x7BA1;&#x9053;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x4F8B;&#x5982;&#xFF0C;<code>fmt.Fprintf</code>&#x80FD;&#x591F;&#x683C;&#x5F0F;&#x5316;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4EC5;&#x4EC5;&#x6587;&#x4EF6;file&#x7C7B;&#x578B;&#xFF1B;&#x8FD8;&#x6709;<code>bufio</code>&#x5305;&#x80FD;&#x591F;&#x5B8C;&#x5168;&#x7684;&#x4ECE;&#x6587;&#x4EF6;I/O&#x4E2D;&#x5206;&#x79BB;&#x51FA;&#x6765;&#xFF1B;&#x8FD8;&#x6709;<code>image</code>&#x5305;&#x751F;&#x6210;&#x538B;&#x7F29;&#x56FE;&#x7247;&#x6587;&#x4EF6;&#x3002;&#x4EE5;&#x4E0A;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x90FD;&#x6E90;&#x4E8E;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;<code>io.write</code> &#xFF0C;&#x7279;&#x522B;&#x662F;&#x5176;&#x4E2D;&#x7684;<code>write</code>&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E9B;&#x90FD;&#x662F;&#x51B0;&#x5C71;&#x4E00;&#x89D2;&#xFF0C;Go&#x7684;interface&#x5BF9;&#x7A0B;&#x5E8F;&#x7684;&#x67B6;&#x6784;&#x6709;&#x7740;&#x5DE8;&#x5927;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x8FD9;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x82B1;&#x70B9;&#x65F6;&#x95F4;&#x6765;&#x9002;&#x5E94;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x79CD;&#x9690;&#x6027;&#x7684;&#x7C7B;&#x578B;&#x4F9D;&#x8D56;&#x662F;Go&#x6700;&#x6709;&#x6548;&#x7387;&#x7684;&#x4F53;&#x73B0;&#x4E4B;&#x4E00;&#x3002;</p>
+<pre><code class="lang-go">explicit &#x663E;&#x5F0F;&#x7684;&#xFF0C;&#x6E05;&#x6670;&#x7684;
+after the fact &#x4E8B;&#x540E;
+ that<span class="hljs-string">&apos;s only scratching the surface &#x51B0;&#x5C71;&#x4E00;&#x89D2;
+profound &#x6DF1;&#x5207;&#x7684; &#x5DE8;&#x5927;&#x7684; &#x6DF1;&#x8FDC;&#x7684;
+</span></code></pre>
 
                                 
                                 </section>
@@ -430,6 +443,14 @@
 
             
                 
+                <a href="Go怎么实现动态匹配方法.html" class="navigation navigation-prev " aria-label="Previous page: Go怎么实现动态匹配方法？">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="为什么len是一个函数而不是一个方法.html" class="navigation navigation-next " aria-label="Next page: 为什么len是一个函数而不是一个方法?">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -438,7 +459,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"设计","level":"1.2","depth":1,"ref":"","articles":[{"title":"Go有’运行时‘设计吗？","level":"1.2.1","depth":2,"path":"Go有'运行时'设计吗.md","ref":"Go有'运行时'设计吗.md","articles":[]},{"title":"Go的字符标识设计","level":"1.2.2","depth":2,"path":"Go的字符标识设计.md","ref":"Go的字符标识设计.md","articles":[]},{"title":"Go为什么没有一些某某特性？","level":"1.2.3","depth":2,"path":"Go为什么没有一些某某特性.md","ref":"Go为什么没有一些某某特性.md","articles":[]},{"title":"Go为什么没有异常？","level":"1.2.4","depth":2,"path":"Go为什么没有异常.md","ref":"Go为什么没有异常.md","articles":[]},{"title":"Go为什么没有泛型？","level":"1.2.5","depth":2,"path":"Go为什么没有泛型.md","ref":"Go为什么没有泛型.md","articles":[]},{"title":"Go为什么没有断言？","level":"1.2.6","depth":2,"path":"Go为什么没有断言.md","ref":"Go为什么没有断言.md","articles":[]},{"title":"Go为什么基于CSP理论设计并发?","level":"1.2.7","depth":2,"path":"Go为什么基于CSP理论设计并发.md","ref":"Go为什么基于CSP理论设计并发.md","articles":[]},{"title":"Go为什么用协程替代线程?","level":"1.2.8","depth":2,"path":"Go为什么用协程替代线程.md","ref":"Go为什么用协程替代线程.md","articles":[]},{"title":"Go的map操作为什么不定义为原子操作?","level":"1.2.9","depth":2,"path":"Go的map操作为什么不定义为原子操作.md","ref":"Go的map操作为什么不定义为原子操作.md","articles":[]},{"title":"你愿意体验Go语言吗?","level":"1.2.10","depth":2,"path":"你愿意体验Go语言吗.md","ref":"你愿意体验Go语言吗.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2021-05-18T15:59:46.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Go为么没有类型继承？","level":"1.3.3","depth":2,"next":{"title":"为什么len是一个函数而不是一个方法?","level":"1.3.4","depth":2,"path":"为什么len是一个函数而不是一个方法.md","ref":"为什么len是一个函数而不是一个方法.md","articles":[]},"previous":{"title":"Go怎么实现动态匹配方法？","level":"1.3.2","depth":2,"path":"Go怎么实现动态匹配方法.md","ref":"Go怎么实现动态匹配方法.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Go为么没有类型继承.md","mtime":"2021-06-07T15:09:21.909Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>Go为什么不声明接口的实现? · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,6 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="怎么确保我的真的实现了一个接口.html" />
+    
+    
+    <link rel="prev" href="Go为什么不支持重载方法和运算符.html" />
     
 
     </head>
@@ -85,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -326,7 +330,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="Go为什么不声明接口的实现.html">
+        <li class="chapter active" data-level="1.3.6" data-path="Go为什么不声明接口的实现.html">
             
                 <a href="Go为什么不声明接口的实现.html">
             
@@ -387,7 +391,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Go为什么不声明接口的实现?</a>
     </h1>
 </div>
 
@@ -402,7 +406,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
+                                <h1 id="go&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x58F0;&#x660E;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;">Go&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x58F0;&#x660E;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;?</h1>
+<p>&#x8981;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4EC5;&#x6B64;&#x800C;&#x5DF2;&#x3002;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x5728;&#x5B9A;&#x4E49;&#x548C;&#x4F7F;&#x7528;&#x63A5;&#x53E3;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x5DF2;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x8FD9;&#x79CD;&#x8BBE;&#x8BA1;&#x7C7B;&#x4F3C;&#x4E8E;&#x300E;&#x7ED3;&#x6784;&#x5316;&#x7C7B;&#x578B;&#x8BBE;&#x8BA1;&#x300F;&#xFF0C;&#x5B83;&#x5206;&#x79BB;&#x4E86;&#x5173;&#x6CE8;&#x70B9;&#xFF0C;&#x63D0;&#x5347;&#x4E86;&#x4EE3;&#x7801;&#x53EF;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x80FD;&#x591F;&#x5728;&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#x4E0A;&#x5FEB;&#x901F;&#x642D;&#x5EFA;&#x4EE3;&#x7801;&#xFF0C;&#x63A5;&#x53E3;&#x7684;&#x8BBE;&#x8BA1;&#x662F;GO&#x5B9E;&#x73B0;&#x654F;&#x6377;&#x548C;&#x8F7B;&#x91CF;&#x5316;&#x7684;&#x91CD;&#x8981;&#x539F;&#x56E0;&#x4E4B;&#x4E00;&#x3002;</p>
+<pre><code class="lang-go">nimble &#x654F;&#x6377;&#x7684;&#xFF0C;&#x8F7B;&#x5DE7;&#x7684;&#xFF0C;&#x7075;&#x6D3B;&#x7684;
+</code></pre>
 
                                 
                                 </section>
@@ -430,6 +437,14 @@
 
             
                 
+                <a href="Go为什么不支持重载方法和运算符.html" class="navigation navigation-prev " aria-label="Previous page: Go为什么不支持重载方法和运算符？">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="怎么确保我的真的实现了一个接口.html" class="navigation navigation-next " aria-label="Next page: 怎么确保我的真的实现了一个接口?">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -438,7 +453,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"设计","level":"1.2","depth":1,"ref":"","articles":[{"title":"Go有’运行时‘设计吗？","level":"1.2.1","depth":2,"path":"Go有'运行时'设计吗.md","ref":"Go有'运行时'设计吗.md","articles":[]},{"title":"Go的字符标识设计","level":"1.2.2","depth":2,"path":"Go的字符标识设计.md","ref":"Go的字符标识设计.md","articles":[]},{"title":"Go为什么没有一些某某特性？","level":"1.2.3","depth":2,"path":"Go为什么没有一些某某特性.md","ref":"Go为什么没有一些某某特性.md","articles":[]},{"title":"Go为什么没有异常？","level":"1.2.4","depth":2,"path":"Go为什么没有异常.md","ref":"Go为什么没有异常.md","articles":[]},{"title":"Go为什么没有泛型？","level":"1.2.5","depth":2,"path":"Go为什么没有泛型.md","ref":"Go为什么没有泛型.md","articles":[]},{"title":"Go为什么没有断言？","level":"1.2.6","depth":2,"path":"Go为什么没有断言.md","ref":"Go为什么没有断言.md","articles":[]},{"title":"Go为什么基于CSP理论设计并发?","level":"1.2.7","depth":2,"path":"Go为什么基于CSP理论设计并发.md","ref":"Go为什么基于CSP理论设计并发.md","articles":[]},{"title":"Go为什么用协程替代线程?","level":"1.2.8","depth":2,"path":"Go为什么用协程替代线程.md","ref":"Go为什么用协程替代线程.md","articles":[]},{"title":"Go的map操作为什么不定义为原子操作?","level":"1.2.9","depth":2,"path":"Go的map操作为什么不定义为原子操作.md","ref":"Go的map操作为什么不定义为原子操作.md","articles":[]},{"title":"你愿意体验Go语言吗?","level":"1.2.10","depth":2,"path":"你愿意体验Go语言吗.md","ref":"你愿意体验Go语言吗.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2021-05-18T15:59:46.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Go为什么不声明接口的实现?","level":"1.3.6","depth":2,"next":{"title":"怎么确保我的真的实现了一个接口?","level":"1.3.7","depth":2,"path":"怎么确保我的真的实现了一个接口.md","ref":"怎么确保我的真的实现了一个接口.md","articles":[]},"previous":{"title":"Go为什么不支持重载方法和运算符？","level":"1.3.5","depth":2,"path":"Go为什么不支持重载方法和运算符.md","ref":"Go为什么不支持重载方法和运算符.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Go为什么不声明接口的实现.md","mtime":"2021-06-10T14:48:19.629Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

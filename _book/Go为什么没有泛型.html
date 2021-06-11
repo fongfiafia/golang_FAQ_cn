@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>Go为什么没有泛型？ · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,6 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="Go为什么没有断言.html" />
+    
+    
+    <link rel="prev" href="Go为什么没有异常.html" />
     
 
     </head>
@@ -85,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -164,7 +168,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="Go为什么没有泛型.html">
+        <li class="chapter active" data-level="1.2.5" data-path="Go为什么没有泛型.html">
             
                 <a href="Go为什么没有泛型.html">
             
@@ -387,7 +391,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Go为什么没有泛型？</a>
     </h1>
 </div>
 
@@ -402,7 +406,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
+                                <h1 id="go&#x4E3A;&#x4EC0;&#x4E48;&#x6CA1;&#x6709;&#x6CDB;&#x578B;&#xFF1F;">Go&#x4E3A;&#x4EC0;&#x4E48;&#x6CA1;&#x6709;&#x6CDB;&#x578B;&#xFF1F;</h1>
+<p>&#x8BE6;&#x7EC6;&#x53EF;&#x4EE5;&#x89C1;issue&#xFF1A;<a href="https://github.com/golang/go/issues/43651" target="_blank">https://github.com/golang/go/issues/43651</a> &#xFF0C;&#x8FD9;&#x4E2A;issue&#x5DF2;&#x7ECF;&#x88AB;&#x8BA4;&#x540C;&#xFF0C;&#x4E0D;&#x51FA;&#x610F;&#x5916;&#x7684;&#x8BDD;&#x5728;Go&#x7684;1.18&#x7248;&#x672C;&#x5C31;&#x80FD;&#x652F;&#x6301;&#x6CDB;&#x578B;&#x4E86;&#x3002;</p>
+<p>Go&#x5E0C;&#x671B;&#x88AB;&#x8BBE;&#x8BA1;&#x4E3A;&#x4E00;&#x4E2A;&#x80FD;&#x591F;&#x88AB;&#x5BB9;&#x6613;&#x6301;&#x7EED;&#x8FD0;&#x884C;&#x5F88;&#x4E45;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#x8BED;&#x8A00;&#xFF08;&#x8BE6;&#x7EC6;&#x53EF;&#x53C2;&#x8003;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;<a href="https://talks.golang.org/2012/splash.article&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x8BBE;&#x8BA1;&#x7684;&#x65F6;&#x5019;&#x805A;&#x7126;&#x4E8E;&#x53EF;&#x62D3;&#x5C55;&#x6027;&#x3001;&#x53EF;&#x9605;&#x8BFB;&#x6027;&#x548C;&#x5E76;&#x53D1;&#x6027;&#x4E0A;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x65F6;&#x770B;&#x6765;&#x591A;&#x6001;&#x7F16;&#x7A0B;&#x5E76;&#x4E0D;&#x662F;&#x5FC5;&#x4E0D;&#x53EF;&#x5C11;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x5FFD;&#x7565;&#x4E86;&#x3002;" target="_blank">https://talks.golang.org/2012/splash.article&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x8BBE;&#x8BA1;&#x7684;&#x65F6;&#x5019;&#x805A;&#x7126;&#x4E8E;&#x53EF;&#x62D3;&#x5C55;&#x6027;&#x3001;&#x53EF;&#x9605;&#x8BFB;&#x6027;&#x548C;&#x5E76;&#x53D1;&#x6027;&#x4E0A;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x65F6;&#x770B;&#x6765;&#x591A;&#x6001;&#x7F16;&#x7A0B;&#x5E76;&#x4E0D;&#x662F;&#x5FC5;&#x4E0D;&#x53EF;&#x5C11;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x5FFD;&#x7565;&#x4E86;&#x3002;</a></p>
+<p>&#x73B0;&#x5728;&#x8BED;&#x8A00;&#x539F;&#x6765;&#x8D8A;&#x6210;&#x719F;&#x5B8C;&#x5584;&#xFF0C;&#x53EF;&#x4EE5;&#x5F00;&#x59CB;&#x8003;&#x8651;&#x6CDB;&#x578B;&#x7684;&#x8BBE;&#x8BA1;&#x3002;&#x4F46;&#x662F;&#x6709;&#x4E00;&#x4E9B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#x8981;&#x7559;&#x610F;&#x3002;</p>
+<p>&#x6CDB;&#x578B;&#x7684;&#x786E;&#x662F;&#x5F88;&#x65B9;&#x4FBF;&#xFF0C;&#x4F46;&#x662F;&#x80CC;&#x540E;&#x7684;&#x4EE3;&#x4EF7;&#x662F;&#x590D;&#x6742;&#x7684;&#x7C7B;&#x578B;&#x7CFB;&#x7EDF;&#x548C;&#x8FD0;&#x884C;&#x65F6;&#x8BBE;&#x8BA1;&#x3002;&#x9C7C;&#x4E0E;&#x718A;&#x638C;&#x4E0D;&#x53EF;&#x517C;&#x5F97;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x6CA1;&#x601D;&#x8003;&#x5230;&#x6BD4;&#x8F83;&#x5747;&#x8861;&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x5728;&#x6301;&#x7EED;&#x601D;&#x8003;&#x3002;</p>
+<p>&#x4E8E;&#x6B64;&#x540C;&#x65F6;&#xFF0C;Go&#x5185;&#x7F6E;&#x7684;map&#x548C;slice&#xFF0C;&#x8FD9;&#x4E9B;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x662F;<code>interface{}</code>&#x63A5;&#x53E3;&#xFF08;&#x4F7F;&#x7528;&#x663E;&#x5F0F;&#x5730;&#x62C6;&#x7BB1;&#xFF09;&#x3002;&#x8FD9;&#x5176;&#x5B9E;&#x548C;&#x6CDB;&#x578B;&#x7C7B;&#x4F3C;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x8BDD;&#x9898;&#x8FD8;&#x5728;&#x6301;&#x7EED;&#x8BA8;&#x8BBA;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x770B;&#x4E4B;&#x524D;&#x4E00;&#x4E9B;Go&#x5B9E;&#x73B0;&#x6CDB;&#x578B;&#x7684;&#x5931;&#x8D25;&#x5C1D;&#x8BD5;<a href="https://github.com/golang/go/issues/15292&#x3002;" target="_blank">https://github.com/golang/go/issues/15292&#x3002;</a></p>
+<p>PS: &#x6CDB;&#x578B;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x5B66;&#x8FC7;Java&#x7684;&#x53EF;&#x4EE5;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x77E5;&#x9053;&#xFF0C;&#x6BD4;&#x5982;hashMap&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x5C31;&#x662F;&#x6CDB;&#x578B;&#xFF0C;&#x5728;&#x6CA1;&#x6709;&#x8BBE;&#x5B9A;&#x7684;&#x65F6;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x610F;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x65E6;&#x5728;&#x6211;&#x4EEC;new&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6307;&#x5B9A;&#x4E86;&#x6CDB;&#x578B;&#x7684;&#x5177;&#x4F53;&#x7C7B;&#x578B;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C31;&#x4E0D;&#x80FD;&#x53D8;&#x4E86;&#x3002;&#x8FD9;&#x4E00;&#x70B9;Go&#x5C31;&#x4E0D;&#x884C;&#xFF0C;&#x867D;&#x7136;&#x4E0A;&#x9762;&#x6709;&#x8BF4;&#x9053;interface&#x505A;&#x5230;&#x4E86;&#x7C7B;&#x4F3C;&#x6CDB;&#x578B;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x662F;&#x76F8;&#x540C;&#x7684;new&#x4E00;&#x4E2A;map&#x7684;&#x65F6;&#x5019;&#xFF0C;Go&#x4E0D;&#x7528;&#x6307;&#x5B9A;&#x5177;&#x4F53;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#xFF0C;&#x800C;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x52A0;&#x4E0A;&#x4E00;&#x5806;&#x65AD;&#x8A00;assert&#xFF0C;&#x5341;&#x5206;&#x81C3;&#x80BF;&#x9EBB;&#x70E6;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-number">1.</span> scalability &#x53EF;&#x62D3;&#x5C55;&#x6027;
+<span class="hljs-number">2.</span> essential &#x5FC5;&#x4E0D;&#x53EF;&#x5C11;&#x7684;
+<span class="hljs-number">3.</span> caveat &#x6CE8;&#x610F;&#x4E8B;&#x9879;
+<span class="hljs-number">4.</span> explicit &#x6E05;&#x6670;&#x5730;&#xFF0C;&#x663E;&#x5F0F;&#x5730;
+<span class="hljs-number">5.</span> buildi-in &#x5185;&#x7F6E;&#x7684;
+</code></pre>
 
                                 
                                 </section>
@@ -430,6 +447,14 @@
 
             
                 
+                <a href="Go为什么没有异常.html" class="navigation navigation-prev " aria-label="Previous page: Go为什么没有异常？">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Go为什么没有断言.html" class="navigation navigation-next " aria-label="Next page: Go为什么没有断言？">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -438,7 +463,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"设计","level":"1.2","depth":1,"ref":"","articles":[{"title":"Go有’运行时‘设计吗？","level":"1.2.1","depth":2,"path":"Go有'运行时'设计吗.md","ref":"Go有'运行时'设计吗.md","articles":[]},{"title":"Go的字符标识设计","level":"1.2.2","depth":2,"path":"Go的字符标识设计.md","ref":"Go的字符标识设计.md","articles":[]},{"title":"Go为什么没有一些某某特性？","level":"1.2.3","depth":2,"path":"Go为什么没有一些某某特性.md","ref":"Go为什么没有一些某某特性.md","articles":[]},{"title":"Go为什么没有异常？","level":"1.2.4","depth":2,"path":"Go为什么没有异常.md","ref":"Go为什么没有异常.md","articles":[]},{"title":"Go为什么没有泛型？","level":"1.2.5","depth":2,"path":"Go为什么没有泛型.md","ref":"Go为什么没有泛型.md","articles":[]},{"title":"Go为什么没有断言？","level":"1.2.6","depth":2,"path":"Go为什么没有断言.md","ref":"Go为什么没有断言.md","articles":[]},{"title":"Go为什么基于CSP理论设计并发?","level":"1.2.7","depth":2,"path":"Go为什么基于CSP理论设计并发.md","ref":"Go为什么基于CSP理论设计并发.md","articles":[]},{"title":"Go为什么用协程替代线程?","level":"1.2.8","depth":2,"path":"Go为什么用协程替代线程.md","ref":"Go为什么用协程替代线程.md","articles":[]},{"title":"Go的map操作为什么不定义为原子操作?","level":"1.2.9","depth":2,"path":"Go的map操作为什么不定义为原子操作.md","ref":"Go的map操作为什么不定义为原子操作.md","articles":[]},{"title":"你愿意体验Go语言吗?","level":"1.2.10","depth":2,"path":"你愿意体验Go语言吗.md","ref":"你愿意体验Go语言吗.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2021-05-18T15:59:46.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Go为什么没有泛型？","level":"1.2.5","depth":2,"next":{"title":"Go为什么没有断言？","level":"1.2.6","depth":2,"path":"Go为什么没有断言.md","ref":"Go为什么没有断言.md","articles":[]},"previous":{"title":"Go为什么没有异常？","level":"1.2.4","depth":2,"path":"Go为什么没有异常.md","ref":"Go为什么没有异常.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Go为什么没有泛型.md","mtime":"2021-05-31T14:20:06.027Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>怎么确保我的真的实现了一个接口? · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,6 +58,8 @@
 
     
     
+    <link rel="prev" href="Go为什么不声明接口的实现.html" />
+    
 
     </head>
     <body>
@@ -85,7 +87,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -339,7 +341,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="怎么确保我的真的实现了一个接口.html">
+        <li class="chapter active" data-level="1.3.7" data-path="怎么确保我的真的实现了一个接口.html">
             
                 <a href="怎么确保我的真的实现了一个接口.html">
             
@@ -387,7 +389,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >怎么确保我的真的实现了一个接口?</a>
     </h1>
 </div>
 
@@ -402,7 +404,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
+                                <h1 id="&#x600E;&#x4E48;&#x786E;&#x4FDD;&#x6211;&#x7684;&#x771F;&#x7684;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;">&#x600E;&#x4E48;&#x786E;&#x4FDD;&#x6211;&#x7684;&#x771F;&#x7684;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;?</h1>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x501F;&#x52A9;&#x7F16;&#x8BD1;&#x5668;&#x6765;&#x68C0;&#x67E5;<code>T</code>&#x662F;&#x5426;&#x5B9E;&#x73B0;&#x4E86;&#x63A5;&#x53E3;<code>I</code>&#xFF0C;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x7A7A;&#x503C;&#x6216;&#x8005;&#x7A7A;&#x6307;&#x9488;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// Verify that T implements I.  </span>
+<span class="hljs-comment">// (PS:&#x63A5;&#x53E3;&#x53EF;&#x4EE5;&#x627F;&#x63A5;&#x4ED6;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5982;&#x679C;&#x65E0;&#x6CD5;&#x627F;&#x63A5;&#xFF0C;&#x8BF4;&#x660E;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x5BF9;&#x5E94;&#x63A5;&#x53E3;)</span>
+<span class="hljs-comment">// &#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x5C31;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;</span>
+<span class="hljs-comment">// &#x4F46;&#x662F;&#x5982;&#x679C;&#x628A;T&#x7684;find&#x65B9;&#x6CD5;&#x53BB;&#x6389;&#xFF0C;&#x5C31;&#x4F1A;&#x62A5;&#x9519;</span>
+<span class="hljs-keyword">type</span> T <span class="hljs-keyword">struct</span> {
+
+}
+
+<span class="hljs-keyword">func</span> (t T) find(){
+
+}
+
+<span class="hljs-keyword">type</span> I <span class="hljs-keyword">interface</span>{
+    find()
+}
+
+<span class="hljs-keyword">func</span> testSatisfy(){
+    <span class="hljs-keyword">var</span> i I
+    i = T{}
+    fmt.Println(i)
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F60;&#x5E0C;&#x671B;&#x63A5;&#x53E3;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x663E;&#x5F0F;&#x7684;&#x58F0;&#x660E;&#x5B83;&#x4EEC;&#x5B9E;&#x73B0;&#x4E86;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x63CF;&#x8FF0;&#x6027;&#x7684;&#x65B9;&#x6CD5;&#x5728;&#x63A5;&#x53E3;&#x4E0A;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x662F;&#x7A7A;&#x5185;&#x5BB9;&#xFF0C;&#x4F46;&#x662F;&#x5C31;&#x662F;&#x4E3A;&#x4E86; &#x8868;&#x8FBE;&#xFF0C;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;&#x67D0;&#x4E2A;&#x63A5;&#x53E3;&#x3002;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Fooer <span class="hljs-keyword">interface</span> {
+    Foo()
+    ImplementsFooer()
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x5C31;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;<code>ImplementsFooer</code>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;&#x7C7B;&#x4F3C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Bar <span class="hljs-keyword">struct</span>{}
+<span class="hljs-keyword">func</span> (b Bar) ImplementsFooer() {}
+<span class="hljs-keyword">func</span> (b Bar) Foo() {}
+</code></pre>
+<p>&#x5927;&#x90E8;&#x5206;&#x7684;&#x4EE3;&#x7801;&#x4E0D;&#x4F1A;&#x8FD9;&#x4E48;&#x4F7F;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x7834;&#x574F;&#x4E86;&#x63A5;&#x53E3;&#x7684;&#x7B80;&#x6D01;&#x6027;&#xFF0C;&#x4E0D;&#x8FC7;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x76F8;&#x4F3C;&#x7684;&#x3001;&#x5BB9;&#x6613;&#x6DF7;&#x6DC6;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x4E48;&#x505A;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x3002;&#xFF08;PS:&#x4E0D;&#x63A8;&#x8350;&#xFF09;</p>
 
                                 
                                 </section>
@@ -430,6 +467,10 @@
 
             
                 
+                <a href="Go为什么不声明接口的实现.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Go为什么不声明接口的实现?">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
                 
             
         
@@ -438,7 +479,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"设计","level":"1.2","depth":1,"ref":"","articles":[{"title":"Go有’运行时‘设计吗？","level":"1.2.1","depth":2,"path":"Go有'运行时'设计吗.md","ref":"Go有'运行时'设计吗.md","articles":[]},{"title":"Go的字符标识设计","level":"1.2.2","depth":2,"path":"Go的字符标识设计.md","ref":"Go的字符标识设计.md","articles":[]},{"title":"Go为什么没有一些某某特性？","level":"1.2.3","depth":2,"path":"Go为什么没有一些某某特性.md","ref":"Go为什么没有一些某某特性.md","articles":[]},{"title":"Go为什么没有异常？","level":"1.2.4","depth":2,"path":"Go为什么没有异常.md","ref":"Go为什么没有异常.md","articles":[]},{"title":"Go为什么没有泛型？","level":"1.2.5","depth":2,"path":"Go为什么没有泛型.md","ref":"Go为什么没有泛型.md","articles":[]},{"title":"Go为什么没有断言？","level":"1.2.6","depth":2,"path":"Go为什么没有断言.md","ref":"Go为什么没有断言.md","articles":[]},{"title":"Go为什么基于CSP理论设计并发?","level":"1.2.7","depth":2,"path":"Go为什么基于CSP理论设计并发.md","ref":"Go为什么基于CSP理论设计并发.md","articles":[]},{"title":"Go为什么用协程替代线程?","level":"1.2.8","depth":2,"path":"Go为什么用协程替代线程.md","ref":"Go为什么用协程替代线程.md","articles":[]},{"title":"Go的map操作为什么不定义为原子操作?","level":"1.2.9","depth":2,"path":"Go的map操作为什么不定义为原子操作.md","ref":"Go的map操作为什么不定义为原子操作.md","articles":[]},{"title":"你愿意体验Go语言吗?","level":"1.2.10","depth":2,"path":"你愿意体验Go语言吗.md","ref":"你愿意体验Go语言吗.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2021-05-18T15:59:46.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"怎么确保我的真的实现了一个接口?","level":"1.3.7","depth":2,"previous":{"title":"Go为什么不声明接口的实现?","level":"1.3.6","depth":2,"path":"Go为什么不声明接口的实现.md","ref":"Go为什么不声明接口的实现.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"怎么确保我的真的实现了一个接口.md","mtime":"2021-06-10T15:08:16.087Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

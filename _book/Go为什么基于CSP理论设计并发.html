@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>Go为什么基于CSP理论设计并发? · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,6 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="Go为什么用协程替代线程.html" />
+    
+    
+    <link rel="prev" href="Go为什么没有断言.html" />
     
 
     </head>
@@ -85,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -190,7 +194,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="Go为什么基于CSP理论设计并发.html">
+        <li class="chapter active" data-level="1.2.7" data-path="Go为什么基于CSP理论设计并发.html">
             
                 <a href="Go为什么基于CSP理论设计并发.html">
             
@@ -387,7 +391,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Go为什么基于CSP理论设计并发?</a>
     </h1>
 </div>
 
@@ -402,7 +406,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
+                                <h1 id="go&#x4E3A;&#x4EC0;&#x4E48;&#x57FA;&#x4E8E;csp&#x7406;&#x8BBA;&#x8BBE;&#x8BA1;&#x5E76;&#x53D1;">Go&#x4E3A;&#x4EC0;&#x4E48;&#x57FA;&#x4E8E;CSP&#x7406;&#x8BBA;&#x8BBE;&#x8BA1;&#x5E76;&#x53D1;?</h1>
+<p>&#x8FD9;&#x4E48;&#x591A;&#x5E74;&#x4EE5;&#x6765;&#xFF0C;&#x5E76;&#x53D1;&#x8BBE;&#x8BA1;&#x548C;&#x591A;&#x7EBF;&#x7A0B;&#x7F16;&#x7A0B;&#x53D8;&#x6210;&#x4E86;&#x201C;&#x590D;&#x6742;&#x201D;&#x7684;&#x4EE3;&#x540D;&#x8BCD;&#x3002;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x56E0;&#x4E3A;&#x8BF8;&#x5982;<a href="https://en.wikipedia.org/wiki/POSIX_Threads" target="_blank">Pthreads</a>&#x590D;&#x6742;&#x7684;&#x8BBE;&#x8BA1;&#xFF0C;&#x4E00;&#x90E8;&#x5206;&#x4E5F;&#x662F;&#x56E0;&#x4E3A;&#x8BF8;&#x5982;&#x4E92;&#x65A5;&#x5668;&#x3001;&#x6761;&#x4EF6;&#x53C2;&#x6570;&#x3001;&#x5185;&#x5B58;&#x5C4F;&#x969C;&#x8FD9;&#x4E9B;&#x8FC7;&#x5206;&#x5F3A;&#x8C03;&#x6781;&#x4F4E;&#x7EC6;&#x8282;&#x7684;&#x8BBE;&#x8BA1;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;&#x8BBE;&#x8BA1;&#x51FA;&#x4E00;&#x4E2A;&#x66F4;&#x9AD8;&#x6C34;&#x5E73;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x80FD;&#x5185;&#x90E8;&#x8FD8;&#x662F;&#x6709;&#x4E92;&#x65A5;&#x5668;&#x8FD9;&#x4E9B;&#x8BBE;&#x8BA1;&#xFF0C;&#x4F46;&#x662F;&#x80FD;&#x591F;&#x63A9;&#x76D6;&#x4F4F;&#x5B83;&#x4EEC;&#xFF0C;&#x8BA9;&#x7F16;&#x7A0B;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#x3002;</p>
+<p>Communicating Sequential Processes&#xFF08;CSP&#xFF09;&#xFF0C;&#x662F;&#x6700;&#x6210;&#x529F;&#x7684;&#x8BED;&#x8A00;&#x5E76;&#x53D1;&#x8BBE;&#x8BA1;&#x4E4B;&#x4E00;&#x3002;Occam&#x548C;Erlang&#x4E24;&#x4E2A;&#x8457;&#x540D;&#x8BED;&#x8A00;&#x90FD;&#x662F;&#x6210;&#x8D77;&#x6E90;&#x4E8E;CSP&#x3002;Go&#x7684;&#x5E76;&#x53D1;&#x8BBE;&#x8BA1;&#x7406;&#x5FF5;&#x8D77;&#x6E90;&#x4E8E;&#x4E00;&#x4E2A;&#x7BA1;&#x9053;&#xFF08;channel&#xFF09;&#x7684;&#x8BBE;&#x8BA1;&#x3002;&#x65E9;&#x671F;&#x4E00;&#x4E9B;&#x8BED;&#x8A00;&#x5C1D;&#x8BD5;&#x4E86;CSP&#x7684;&#x8BBE;&#x8BA1;&#xFF0C;&#x8BC1;&#x660E;&#x4E86;CSP&#x6A21;&#x578B;&#x5341;&#x5206;&#x9002;&#x5408;&#x7A0B;&#x5E8F;&#x6027;&#x6846;&#x67B6;&#x8BED;&#x8A00;&#x3002;</p>
+<pre><code class="lang-go">stem from &#x8D77;&#x6E90;&#x4E8E;
+primitive &#x8001;&#x5F0F;&#x7684;
+derive from &#x5BFC;&#x51FA;&#x3001;&#x63A2;&#x7A76;&#x3001;&#x8D77;&#x6E90;&#x4E8E;
+notion &#x89C2;&#x5FF5;
+procedural &#x7A0B;&#x5E8F;&#x6027;&#x7684;
+</code></pre>
 
                                 
                                 </section>
@@ -430,6 +442,14 @@
 
             
                 
+                <a href="Go为什么没有断言.html" class="navigation navigation-prev " aria-label="Previous page: Go为什么没有断言？">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Go为什么用协程替代线程.html" class="navigation navigation-next " aria-label="Next page: Go为什么用协程替代线程?">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -438,7 +458,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"设计","level":"1.2","depth":1,"ref":"","articles":[{"title":"Go有’运行时‘设计吗？","level":"1.2.1","depth":2,"path":"Go有'运行时'设计吗.md","ref":"Go有'运行时'设计吗.md","articles":[]},{"title":"Go的字符标识设计","level":"1.2.2","depth":2,"path":"Go的字符标识设计.md","ref":"Go的字符标识设计.md","articles":[]},{"title":"Go为什么没有一些某某特性？","level":"1.2.3","depth":2,"path":"Go为什么没有一些某某特性.md","ref":"Go为什么没有一些某某特性.md","articles":[]},{"title":"Go为什么没有异常？","level":"1.2.4","depth":2,"path":"Go为什么没有异常.md","ref":"Go为什么没有异常.md","articles":[]},{"title":"Go为什么没有泛型？","level":"1.2.5","depth":2,"path":"Go为什么没有泛型.md","ref":"Go为什么没有泛型.md","articles":[]},{"title":"Go为什么没有断言？","level":"1.2.6","depth":2,"path":"Go为什么没有断言.md","ref":"Go为什么没有断言.md","articles":[]},{"title":"Go为什么基于CSP理论设计并发?","level":"1.2.7","depth":2,"path":"Go为什么基于CSP理论设计并发.md","ref":"Go为什么基于CSP理论设计并发.md","articles":[]},{"title":"Go为什么用协程替代线程?","level":"1.2.8","depth":2,"path":"Go为什么用协程替代线程.md","ref":"Go为什么用协程替代线程.md","articles":[]},{"title":"Go的map操作为什么不定义为原子操作?","level":"1.2.9","depth":2,"path":"Go的map操作为什么不定义为原子操作.md","ref":"Go的map操作为什么不定义为原子操作.md","articles":[]},{"title":"你愿意体验Go语言吗?","level":"1.2.10","depth":2,"path":"你愿意体验Go语言吗.md","ref":"你愿意体验Go语言吗.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2021-05-18T15:59:46.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Go为什么基于CSP理论设计并发?","level":"1.2.7","depth":2,"next":{"title":"Go为什么用协程替代线程?","level":"1.2.8","depth":2,"path":"Go为什么用协程替代线程.md","ref":"Go为什么用协程替代线程.md","articles":[]},"previous":{"title":"Go为什么没有断言？","level":"1.2.6","depth":2,"path":"Go为什么没有断言.md","ref":"Go为什么没有断言.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Go为什么基于CSP理论设计并发.md","mtime":"2021-05-31T14:54:58.395Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-10T15:12:33.464Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
