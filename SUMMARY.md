@@ -21,4 +21,16 @@
     * [Go为什么不声明接口的实现?](Go为什么不声明接口的实现.md)
     * [怎么确保我的真的实现了一个接口?](怎么确保我的真的实现了一个接口.md)
     * [为什么类型不实现Equal接口呢?](为什么类型不实现Equal接口呢.md)
+    * [能把[]T转换为[]interface{}吗?](能把[]T转换为[]interface{}吗.md)
+    * [如果T1和T2的类型相同，能够把[]T1转化为[]T2吗?](如果T1和T2的类型相同，能够把[]T1转化为[]T2吗.md)
+    * [为什么空值的error和nil并不相等?]([为什么空值的error和nil并不相等.md)
+    * [为什么Go不像C一样支持untagged unions类型?](为什么Go不像C一样支持untagged unions类型.md)
+    * [Go为什么没有variant types?](Go为什么没有variant types.md)
+    * [Go为什么没有可变的返回类型呢?](Go为什么没有可变的返回类型呢.md)
+* 值
+    * [Go为什么不支持隐式的数值转换?](Go为什么不支持隐式的数值转换.md)
+    * [Go的常量是怎么工作的?](Go的常量是怎么工作的.md)
+    * [为什么map是内置的?](为什么map是内置的.md)
+    * [Go的map为什么不允许slice作为key?](Go的map为什么不允许slice作为key.md)
+    * [为什么maps、slices、channels都是引用，而arrays确实值类型?](为什么maps、slices、channels都是引用，而arrays确实值类型.md)
 
